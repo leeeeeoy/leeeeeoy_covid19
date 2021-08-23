@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
-import 'package:leeeeeoy_covid19/src/app.dart';
+import 'package:leeeeeoy_covid19/src/screens/main_screen.dart';
 import 'package:leeeeeoy_covid19/src/controller/covid_statistics_controller.dart';
 
 Future<void> main() async {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: App(),
+      home: MainScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

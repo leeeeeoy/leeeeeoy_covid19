@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:leeeeeoy_covid19/src/components/bar_chart.dart';
 import 'package:leeeeeoy_covid19/src/components/covid_statistics_viewer.dart';
 import 'package:leeeeeoy_covid19/src/controller/covid_statistics_controller.dart';
 
-class App extends GetView<CovidStatisticsController> {
-  App({Key? key}) : super(key: key);
+class MainScreen extends GetView<CovidStatisticsController> {
+  MainScreen({Key? key}) : super(key: key);
 
   late double headerTopZone;
 
@@ -206,7 +207,11 @@ class App extends GetView<CovidStatisticsController> {
         AspectRatio(
           aspectRatio: 1.7,
           child: Obx(() => controller.weekDays.length == 0
-              ? CircularProgressIndicator()
+              ? Center(
+                  child: SpinKitFadingCircle(
+                  color: Colors.blueAccent,
+                  size: 100.0,
+                ))
               : CovidBarChart(
                   covidDatas: controller.weekDays,
                   maxY: controller.maxDecideValue,

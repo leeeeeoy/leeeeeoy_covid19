@@ -35,10 +35,12 @@ class CovidStatisticsRepository {
     final results = document.findAllElements('item');
 
     if (results.isNotEmpty) {
-      return results
-          .map<Covid19Statistics>(
-              (element) => Covid19Statistics.fromXml(element))
-          .toList();
+      return Future<List<Covid19Statistics>>.delayed(Duration(seconds: 3), () {
+        return results
+            .map<Covid19Statistics>(
+                (element) => Covid19Statistics.fromXml(element))
+            .toList();
+      });
     } else {
       return Future.value(null);
     }
