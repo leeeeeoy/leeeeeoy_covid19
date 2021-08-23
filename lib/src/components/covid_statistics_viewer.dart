@@ -59,6 +59,7 @@ class CovidStatisticsViewer extends StatelessWidget {
                 color: _color,
               ),
             ),
+            SizedBox(width: 5),
             Text(
               DataUtils.numberFormat(addedCount),
               style: TextStyle(
